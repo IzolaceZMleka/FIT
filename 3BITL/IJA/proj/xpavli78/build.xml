@@ -1,0 +1,32 @@
+<project>
+
+    <target name="clean">
+        <delete includeemptydirs="true">
+			<fileset dir="build" includes="**/*"/>
+		</delete>
+        <delete includeemptydirs="true">
+			<fileset dir="dest-client" includes="**/*"/>
+		</delete>
+        <delete includeemptydirs="true">
+			<fileset dir="doc" includes="**/*"/>
+		</delete>
+    </target>
+
+    <target name="compile">
+        <javac includeantruntime="false" srcdir="src" destdir="build"/>
+        <jar destfile="dest-client/ija-client.jar" basedir="build">
+            <manifest>
+                <attribute name="Main-Class" value="Game.Klondike"/>
+            </manifest>
+            <fileset dir="lib/resources">
+           </fileset>
+        </jar>
+        <javadoc packagenames="*" sourcepath="src" destdir="doc">
+    	</javadoc>
+    </target>
+
+    <target name="run">
+        <java jar="dest-client/ija-client.jar" fork="true"/>
+    </target>
+
+</project>
