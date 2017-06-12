@@ -5,8 +5,8 @@
 			+ [Projekt 3 - Model informačního systému](1BITZ/IUS/proj3) (18/20) - ERD  
 		+ IZP - Základy programování
 			+ [Projekt 1 - Výpočty v tabulce](1BITZ/IZP/proj1/) (4/5) - jazyk C
-			+ [Projekt 2 - Iterační výpočty](1BITZ/IZP/proj1/) (9/10) - jazyk C
-			+ [Projekt 3 - Průchod bludištěm](1BITZ/IZP/proj1/) (8/10) - jazyk C
+			+ [Projekt 2 - Iterační výpočty](1BITZ/IZP/proj2/) (9/10) - jazyk C
+			+ [Projekt 3 - Průchod bludištěm](1BITZ/IZP/proj3/) (8/10) - jazyk C
 		+ ITO - Teorie obvodů
 			+ [Semestrální projekt](1BITZ/ITO/) (12,5/15)
 	+ letní semestr:
@@ -19,10 +19,10 @@
 			+ [Projekt 2 - tail, hashovací tabulka](1BITL/IJC/proj2/) (12,5/15) - jazyk C
 		+ ITY - Typografie a publikování
 			+ [Projekt 1](1BITL/ITY/proj1/) (10/10) - LaTeX
-			+ [Projekt 2](1BITL/ITY/proj1/) (14/15) - LaTeX
-			+ [Projekt 3](1BITL/ITY/proj1/) (14/15) - LaTeX
-			+ [Projekt 4](1BITL/ITY/proj1/) (13,5/15) - LaTeX
-			+ [Projekt 5](1BITL/ITY/proj1/) (15/15) - LaTeX
+			+ [Projekt 2](1BITL/ITY/proj2/) (14/15) - LaTeX
+			+ [Projekt 3](1BITL/ITY/proj3/) (14/15) - LaTeX
+			+ [Projekt 4](1BITL/ITY/proj4/) (13,5/15) - LaTeX
+			+ [Projekt 5](1BITL/ITY/proj5/) (15/15) - LaTeX
 
 * 2BIT
 	+ zimní semestr:
@@ -39,7 +39,7 @@
 			+ [Projekt - Interpret imperativního jazyka IFJ15](2BITZ/IFJ/proj1/) (20/20) - jazyk C
 		+ INP - Návrh počítačových systémů
 			+ [Projekt 1 - FITkit](2BITZ/INP/proj1/) (13/13)
-			+ [Projekt 2 - Brainfuck](2BITZ/INPJ/proj2/) (18/20) - VHDL
+			+ [Projekt 2 - Brainfuck](2BITZ/INP/proj2/) (18/20) - VHDL
 		+ ISS - Signály a systémy
 			+ [Projekt 1](2BITZ/ISS/proj1/) (12/12) - MatLab
 		+ INI - Návrh a implementace IT služeb
@@ -72,7 +72,7 @@
 		+ IMP - Mikroprocesorové a vestavěné systémy
 			+ [Projekt - Jednoduchý klavír pomocí FITkitu](3BITZ/IMP/xpavli78/)  (14/14) - jazyk C
 		+ IMS - Modelování a simulace
-			+ [Projekt - Modelování hasičských stanic](3BITZ/IMP/proj/) (20/20) - jazyk C/C++
+			+ [Projekt - Modelování hasičských stanic](3BITZ/IMS/proj/) (20/20) - jazyk C/C++
 		+ ISA - Síťové aplikace a správa sítí
 			+ [Projekt - Jednoduchý monitorovací nástroj protokolů CDP a LLDP](3BITZ/ISA/proj/) (15/15) - jazyk C/C++
 		+ ITU - Tvorba uživatelských rozhraní
@@ -81,9 +81,9 @@
 			+ [Projekt - Čtečka čárových kódů umožňující správu léků](3BITZ/IUMI/proj/) (14/15) - MIT App Inventor
 	+ letní semestr:
 		+ IJA - Seminář Java
-			+ [Úkol 1](3BITZ/IJA/ukol1/) (4/4)
-			+ [Úkol 2](3BITZ/IJA/ukol2/) (4/4)
-			+ [Úkol 3](3BITZ/IJA/ukol3/) (2/2)
+			+ [Úkol 1](3BITZ/IJA/ukol_1/) (4/4)
+			+ [Úkol 2](3BITZ/IJA/ukol_2/) (4/4)
+			+ [Úkol 3](3BITZ/IJA/ukol_3/) (2/2)
 			+ [Projekt - hra Solitaire (Klondike)](3BITL/IJA/proj/xpavli78) (90/90) - Java
 
 			
