@@ -1,0 +1,11 @@
+int func(int b)
+{
+}
+
+int main()
+{
+    int a;
+	a = func(10);
+    cout << a;
+    return 42;
+}

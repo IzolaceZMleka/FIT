@@ -1,0 +1,28 @@
+/* test na SIMPLE rozsireni (if / else jen 1 prikazem) */
+/* seradi 3 zadane cisla vzestupne */
+
+int main() {
+	int a;
+	int b;
+	int c;
+	cout << "zadej 3 cela cisla\n";
+	cin >> a >> b >> c;
+	cout << "seradim ti je vzestupne: ";
+	if (a > b)
+		if (b < c)
+			if (a > c)
+				cout << b << " " << c << " " << a << "\n";
+			else
+				cout << b << " " << a << " " << c << "\n";
+		else // tedy c < b
+			cout << c << " " << b << " " << a << "\n";
+	else // tedy a < b
+		if (a < c)
+			if (b < c)
+				cout << a << " " << b << " " << c << "\n";
+			else
+				cout << a << " " << c << " " << b << "\n";
+		else // tedy a > c
+			cout << c << " " << a << " " << b << "\n";
+	return 0;
+}

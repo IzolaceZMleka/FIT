@@ -1,0 +1,41 @@
+int f(int param1){}
+int f2(int param1, double param2);
+int main(){
+	auto s = "text";
+	int i = 0;
+	double f;
+	if (i>0)
+		{return 1;}
+	else
+		{cin >> s;}
+	for(int i = 1; i > 0; i=i-1)
+		{cout << s;}
+}
+
+_jablicko
+mrkvicka
+pejsekako4i4ka
+
+"Tisk uvozovky |\"|"
+"Tisk enteru |\n|"
+"Tisk backslash |\\|"
+"Tisk tabulator |\t|"
+"Base 2: |base| = |\b01100010\b01100001\b01110011\b01100101|"
+"Base 8: |tutu| = |\0164\0165\0164\0165|"
+"Base 16: |hexe| = |\x68\x65\x78\x65|"
+
+\x63
+\0145
+\b01100111
+
+4e13
+6.484849
+0.13e-3
+12.4e3
+
+48195995
+123456789 
+
+\0
+"dsadasdas // neukonceny string
+"dsadsad // neukonceny string EOF

@@ -1,0 +1,2 @@
+40 - chyby ve vyrazech - syntakticke i semanticke
+41 - semanticke chyby v programu - fce

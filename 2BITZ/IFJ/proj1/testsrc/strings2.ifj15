@@ -1,0 +1,16 @@
+/* Program 3: Prace s retezci a vestavenymi funkcemi */
+int main()
+{
+	auto str1 = "nejaky dlouhy retezec";
+	string str2;
+	int i;
+	str2 = substr(str1, 7, 6);
+	cout << "melo by byt \"dlouhy\": " << str2 << "\n";
+	i = length(str1);
+	cout << "delka puvodniho retezce: " << i << "\n";
+	i = i - 7;
+	str2 = substr(str1, i, 20); // delka jde pres hranici puvodniho stringu
+	i = length(str2);
+	cout << "posledni slovo(retezec): " << str2 << " a jeho delka: " << i << "\n";
+	return 0;
+}

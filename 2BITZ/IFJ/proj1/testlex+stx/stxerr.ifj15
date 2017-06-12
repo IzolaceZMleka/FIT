@@ -1,0 +1,13 @@
+int f(int param1){}
+int f2(int param1, double param2);
+int main(){
+	auto s = "text";
+	int i = 0;
+	double f;
+	if (i>0)
+		{return 1;}
+	else
+		{cin >> s;}}
+	for(int i = 1; i > 0; i=i-1)
+		{cout << s;}
+}

@@ -1,0 +1,10 @@
+int main() {
+	cout << \xFFf1; // NENI BLBE lexer sezere strednik => OPRAVENO
+	cout << \b0; // NEMELO BY BYT BLBE (v. forum platna cislice) je nula platna cislice v dvojkove soustave, nebo ne? => cislo od  01 do FF, bral jsem to tak vsude, OPRAVENO
+	//cout << 5E+-1+1 ; // JE BLBE No krasne realne cislo zapsane ve vedeckem zapise, ne? => pridan stav S_PM, S_PM_N ... OPRAVNEO
+	//cout << "test	test" ; // JE BLBE A nemusi to byt zrovna tabulator => pri ASCII > 31 error, prehlednul jsem v zadani, ORPAVENO
+	cout << 1.; // BLBE
+	
+	cout << "\n\t\\\"test\\\"\n"; // OK
+	return 1;
+}

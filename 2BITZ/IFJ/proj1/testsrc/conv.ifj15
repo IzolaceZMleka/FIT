@@ -1,0 +1,14 @@
+/* implicitni konverze int <-> double */
+int main () {
+	double d;
+	int a;
+	string s;
+	cout << "napis slovo";
+	cin >> s;
+	d = length(s);
+	d = d - 0.5;
+	cout << "to slovo ma neco mezi " << d;
+	d = d + 1;
+	cout << " a " << d << " znaky\n";
+	return 0;
+}

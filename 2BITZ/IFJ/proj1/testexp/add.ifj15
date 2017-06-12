@@ -1,0 +1,49 @@
+a + a; // ---------- testy na syntaxy
+b,
+(1),
+0+0+0)
+a+0,
+b+0,
+a+0.0,
+a+b+b+a,
+b+(a+a)+b,
+c,     
+1*1,   // pridame i nasobeni
+a*0.0,
+a+b*b,
+a,     // ukladame do b
+b,     // ukladame do a   
+1-5,   // --------- odcitani
+a-b-0,
+0-a,   // nelze zoptimalizovat
+a/a,   // --------- deleni
+a/b,
+a/1.0,
+4/2,   // --------- celociselne deleni
+3/2,
+3/2.0,
+3.0/2,
+0 == 0, // -------- operator (non)ekvivalence nad cisly
+2 == 2.0,
+0 == 1,
+a == a*a,
+a == b,
+(1 != a) * (1 != b),
+c == c, // -------- (non)ekvivalence nad stringy
+"a" != "b",
+"" == "",
+2 < 1.0,// -------- operatory vetsi/mensi/rovno nad cisly 
+2 > 4,
+1 <= 2,
+2 >= 2.0,
+a < b,
+b > a,
+"a" > "b",// -------- operatory vetsi/mensi/rovno nad retezci
+"test" >= "tes",
+c < c,
+c < "a",
+
+ 
+// "a" != b, // typova nekompatibilita
+//a/0,   // semanticka chyba - deleni nulou
+c+c      // --------- spatna syntaxe/semantika

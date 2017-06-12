@@ -1,0 +1,38 @@
+TortoiseSVN
+assembla.com
+repozitář https://subversion.assembla.com/svn/velda.IFJ/trunk/
+
+používání c 99
+
+--------------
+štábní kultura
+--------------
+identifikátory anglicky, CamelCase
+* kromě konstant, ty standardně velkými písmeny a s podtržítky
+komentáře česky, bez diakritiky
+zalomení řádků LF (!) - v linuxu je implicitní
+komentáře zvnějšku a zevnitř oddělovat mezerou
+odsazování kódu tabulátor(bez expanze mezer), zarovnání komentářů/něčeho jiného mezerami, viz:
+
+{
+	if(promennaJedna == NEJAKA_DIVNA_KONSTANTA || // varianta A
+	   promennaDve == JESTE_DIVNEJSI_KONSTANTA    // varianta B
+	) {
+		promennaTri = 42;
+	}
+}
+
+	
+	
+Bohaté tokeny
+- identifikátory - id - int z haschovací tabulky
+- string  - pointer
+- přímé hodnoty - int/real
+
+
+---------------
+Tabulka symbolu
+---------------
+informace o identifikatoru jsou definovany v htable.h - struktura htab_data - muzete pridavat polozky podle potreby
+jinak by zatim nemelo byt potreba nic menit, funkce v symholtable.h by meli zastresovat celou tabulku symbolu
+(ta obsahuje seznam jednotlivych tabulek symbolu ke kazdemu bloku).

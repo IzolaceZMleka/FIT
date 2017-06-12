@@ -1,0 +1,6 @@
+int main(){
+	double f;
+	cin >> f;
+	cout << f;
+	return 0;
+}

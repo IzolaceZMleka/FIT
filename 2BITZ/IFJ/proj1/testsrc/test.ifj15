@@ -1,0 +1,18 @@
+int f(int param1);
+int main(){
+	auto s = "text";
+	string x = "x";
+	int i;
+	i = find(s,x);
+	cout << i;
+	if (i==0)
+		{return 1;}
+	else
+		{}
+	for(int i = 1; i > 0; i=i-1)
+		{cout << s;}
+	// muze nastat chyba 8 - zadny return
+}
+int f(int param1){
+	return 1;
+}

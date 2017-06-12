@@ -1,0 +1,12 @@
+/* Program 3: Prace s retezci a vestavenymi funkcemi */
+int main()
+{
+	string str1 = "abcd";
+	string str2;
+	str2 = str1;
+	if (str2 == "abcd") {
+	cout << str2;
+	}
+	else {}
+	return 1;
+}

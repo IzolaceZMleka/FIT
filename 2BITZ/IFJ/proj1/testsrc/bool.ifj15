@@ -1,0 +1,61 @@
+bool fce(int a) {
+	bool b = true;
+	int c = 2;
+	double d = 3.0;
+	if(a == 0) return b;
+	else if(a == 1) return c;
+	else return d;
+}
+
+int main() {
+	auto a = 2 == 2;
+	a = 2;
+	cout << "Melo by byt a = 1\n a = ";
+	cout << a << "\n";
+	cin >> a;
+	cout << "Melo by byt a = 1 nebo 0\n a = ";
+	cout << a << "\n";
+	int b = 2;
+	double c = 1.0;
+	a = b;
+	cout << ":: a = 1.0 \n";
+	cout << "Melo by byt a = 1 \n a = ";
+	cout << a << "\n";
+	a = b - 2*c;
+	cout << ":: a = 2 - 2*1.0 \n";
+	cout << "Melo by byt a = 0\n a = ";
+	cout << a << "\n";
+	a = 0 && 1.0;
+	auto d = 2.0 && 1;
+	auto e = false;
+	auto f = e || true;
+	cout << "Melo by byt a = 0, d = 1, e = 0, f = 1\n";
+	cout << "a = " << a << ", d = " << d << ", e = " << e << ", f = " << f << "\n";
+	a = d && a && f; // 0
+	d = a || e || f; // 1
+	e = d + a && true * false; // 0
+	f = (true + false) == (b - c); // 1
+	cout << "Melo by zustat stejne\n";
+	cout << "a = " << a << ", d = " << d << ", e = " << e << ", f = " << f << "\n";
+	b = d;
+	c = 0.5; // cislo ma v prvnim bajtu nulu - mantisa
+	a = e || c; // kontrola, zda se c bere skutecne jako double - pokud by to bralo jako integer, tak by vysledek byl nula
+	c = e;
+	cout << "Melo by byt: 1 0 1\n";
+	cout << b << " " << c << " " << a << "\n";
+	b = fce(0);
+	c = fce(1);
+	// int b2 = fce(2); // chyba za behu, deleni nulou?
+	int b2; b2 = fce(2);
+	cout << "Melo by byt 1 1 1\n"; // restujeme navratove hodnoty bool
+	cout << b << " " << c << " " << b2 << "\n";
+	
+	a = 1; c = 2.0; b =0;
+	a = !a; // 0
+	d = !a && !a; // nand -> 1
+	e = !c; // 0
+	f = !a || !b; // nor -> 1*/
+	cout << "Melo by byt a = 0, d = 1, e = 0, f = 1\n";
+	cout << "a = " << a << ", d = " << d << ", e = " << e << ", f = " << f << "\n";
+	return 0;
+}

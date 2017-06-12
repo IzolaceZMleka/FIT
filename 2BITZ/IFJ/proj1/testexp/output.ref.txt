@@ -1,0 +1,308 @@
+Velikost size_t: 1, ptr: 1, int: 1, double: 2 
+_________Test 1_________
+E -> i
+E -> i
+E -> E o E
+vysledek: 1 typ: 0 ukon. lex.: 24
+instr: 32, op1,2: 10 1 1.78875e-307
+instr: 64, op1,2: 10 1 1.78875e-307
+_________Test 2_________
+E -> i
+vysledek: 2 typ: 1 ukon. lex.: 25
+instr: 37, op1,2: 10 2 1.78875e-307
+_________Test 3_________
+E -> i
+E -> (E)
+vysledek: 1 typ: 0 ukon. lex.: 25
+instr: 48, op1,2: 10 1 1.78875e-307
+_________Test 4_________
+E -> i
+E -> i
+E -> E o E
+E -> i
+E -> E o E
+vysledek: 1 typ: 0 ukon. lex.: 45
+instr: 48, op1,2: 10 0 1.78875e-307
+_________Test 5_________
+E -> i
+E -> i
+E -> E o E
+vysledek: 1 typ: 0 ukon. lex.: 25
+instr: 32, op1,2: 10 1 1.78875e-307
+_________Test 6_________
+E -> i
+E -> i
+E -> E o E
+vysledek: 2 typ: 1 ukon. lex.: 25
+instr: 37, op1,2: 10 2 1.78875e-307
+_________Test 7_________
+E -> i
+E -> i
+E -> E o E
+vysledek: 2 typ: 1 ukon. lex.: 25
+instr: 36, op1,2: 10 1 1.78875e-307
+_________Test 8_________
+E -> i
+E -> i
+E -> E o E
+E -> i
+E -> E o E
+E -> i
+E -> E o E
+vysledek: 2 typ: 1 ukon. lex.: 25
+instr: 36, op1,2: 10 1 1.78875e-307
+instr: 70, op1,2: 10 2 1.78875e-307
+instr: 70, op1,2: 10 2 1.78875e-307
+instr: 68, op1,2: 10 1 1.78875e-307
+_________Test 9_________
+E -> i
+E -> i
+E -> i
+E -> E o E
+E -> (E)
+E -> E o E
+E -> i
+E -> E o E
+vysledek: 2 typ: 1 ukon. lex.: 25
+instr: 32, op1,2: 10 1 1.78875e-307
+instr: 64, op1,2: 10 1 1.78875e-307
+instr: 66, op1,2: 10 2 1.78875e-307
+instr: 70, op1,2: 10 2 1.78875e-307
+_________Test 10_________
+E -> i
+vysledek: 1 typ: 2 ukon. lex.: 25
+instr: 42, op1,2: 10 0 1.78875e-307
+_________Test 11_________
+E -> i
+E -> i
+E -> E o E
+vysledek: 1 typ: 0 ukon. lex.: 25
+instr: 48, op1,2: 10 1 1.78875e-307
+_________Test 12_________
+E -> i
+E -> i
+E -> E o E
+vysledek: 2 typ: 1 ukon. lex.: 25
+instr: 53, op1,2: 10 0 0
+_________Test 13_________
+E -> i
+E -> i
+E -> i
+E -> E o E
+E -> E o E
+vysledek: 2 typ: 1 ukon. lex.: 25
+instr: 37, op1,2: 10 2 1.78875e-307
+instr: 78, op1,2: 10 2 1.78875e-307
+instr: 68, op1,2: 10 1 1.78875e-307
+_________Test 14_________
+E -> i
+vysledek: 0 typ: 1 ukon. lex.: 25
+instr: 36, op1,2: 5 1 1.78875e-307
+_________Test 15_________
+E -> i
+vysledek: 0 typ: 0 ukon. lex.: 25
+instr: 33, op1,2: 5 2 1.78875e-307
+_________Test 16_________
+E -> i
+E -> i
+E -> E o E
+vysledek: 1 typ: 0 ukon. lex.: 25
+instr: 48, op1,2: 10 4294967292 1.78875e-307
+_________Test 17_________
+E -> i
+E -> i
+E -> E o E
+E -> i
+E -> E o E
+vysledek: 2 typ: 1 ukon. lex.: 25
+instr: 36, op1,2: 10 1 1.78875e-307
+instr: 86, op1,2: 10 2 1.78875e-307
+_________Test 18_________
+E -> i
+E -> i
+E -> E o E
+vysledek: 1 typ: 0 ukon. lex.: 25
+instr: 32, op1,2: 10 1 1.78875e-307
+instr: 89, op1,2: 10 0 1.78875e-307
+_________Test 19_________
+E -> i
+E -> i
+E -> E o E
+vysledek: 1 typ: 0 ukon. lex.: 25
+instr: 32, op1,2: 10 1 1.78875e-307
+instr: 96, op1,2: 10 1 1.78875e-307
+_________Test 20_________
+E -> i
+E -> i
+E -> E o E
+vysledek: 2 typ: 1 ukon. lex.: 25
+instr: 36, op1,2: 10 1 1.78875e-307
+instr: 102, op1,2: 10 2 1.78875e-307
+_________Test 21_________
+E -> i
+E -> i
+E -> E o E
+vysledek: 2 typ: 1 ukon. lex.: 25
+instr: 36, op1,2: 10 1 1.78875e-307
+_________Test 22_________
+E -> i
+E -> i
+E -> E o E
+vysledek: 1 typ: 0 ukon. lex.: 25
+instr: 48, op1,2: 10 2 1.78875e-307
+_________Test 23_________
+E -> i
+E -> i
+E -> E o E
+vysledek: 1 typ: 0 ukon. lex.: 25
+instr: 48, op1,2: 10 1 1.78875e-307
+_________Test 24_________
+E -> i
+E -> i
+E -> E o E
+vysledek: 2 typ: 1 ukon. lex.: 25
+instr: 53, op1,2: 10 0 1.5
+_________Test 25_________
+E -> i
+E -> i
+E -> E o E
+vysledek: 2 typ: 1 ukon. lex.: 25
+instr: 53, op1,2: 10 0 1.5
+_________Test 26_________
+E -> i
+E -> i
+E -> E o E
+vysledek: 1 typ: 0 ukon. lex.: 25
+instr: 48, op1,2: 10 1 1.78875e-307
+_________Test 27_________
+E -> i
+E -> i
+E -> E o E
+vysledek: 1 typ: 0 ukon. lex.: 25
+instr: 48, op1,2: 10 1 1.78875e-307
+_________Test 28_________
+E -> i
+E -> i
+E -> E o E
+vysledek: 1 typ: 0 ukon. lex.: 25
+instr: 48, op1,2: 10 0 1.78875e-307
+_________Test 29_________
+E -> i
+E -> i
+E -> i
+E -> E o E
+E -> E o E
+vysledek: 1 typ: 0 ukon. lex.: 25
+instr: 32, op1,2: 10 1 1.78875e-307
+instr: 72, op1,2: 10 1 1.78875e-307
+instr: 112, op1,2: 10 1 1.78875e-307
+_________Test 30_________
+E -> i
+E -> i
+E -> E o E
+vysledek: 2 typ: 0 ukon. lex.: 25
+instr: 36, op1,2: 10 1 1.78875e-307
+instr: 117, op1,2: 10 2 1.78875e-307
+_________Test 31_________
+E -> i
+E -> i
+E -> E o E
+E -> (E)
+E -> i
+E -> i
+E -> E o E
+E -> (E)
+E -> E o E
+vysledek: 3 typ: 0 ukon. lex.: 25
+instr: 32, op1,2: 10 1 1.78875e-307
+instr: 131, op1,2: 10 1 1.78875e-307
+instr: 37, op1,2: 11 2 1.78875e-307
+instr: 135, op1,2: 11 0 1
+instr: 72, op1,2: 10 11 1.78875e-307
+_________Test 32_________
+E -> i
+E -> i
+E -> E o E
+vysledek: 1 typ: 0 ukon. lex.: 25
+instr: 42, op1,2: 10 0 1.78875e-307
+instr: 122, op1,2: 10 0 1.78875e-307
+_________Test 33_________
+E -> i
+E -> i
+E -> E o E
+vysledek: 1 typ: 0 ukon. lex.: 25
+instr: 48, op1,2: 10 1 1.78875e-307
+_________Test 34_________
+E -> i
+E -> i
+E -> E o E
+vysledek: 1 typ: 0 ukon. lex.: 25
+instr: 48, op1,2: 10 1 1.78875e-307
+_________Test 35_________
+E -> i
+E -> i
+E -> E o E
+vysledek: 1 typ: 0 ukon. lex.: 25
+instr: 48, op1,2: 10 0 1.78875e-307
+_________Test 36_________
+E -> i
+E -> i
+E -> E o E
+vysledek: 1 typ: 0 ukon. lex.: 25
+instr: 48, op1,2: 10 0 1.78875e-307
+_________Test 37_________
+E -> i
+E -> i
+E -> E o E
+vysledek: 1 typ: 0 ukon. lex.: 25
+instr: 48, op1,2: 10 1 1.78875e-307
+_________Test 38_________
+E -> i
+E -> i
+E -> E o E
+vysledek: 1 typ: 0 ukon. lex.: 25
+instr: 48, op1,2: 10 1 1.78875e-307
+_________Test 39_________
+E -> i
+E -> i
+E -> E o E
+vysledek: 2 typ: 0 ukon. lex.: 25
+instr: 36, op1,2: 10 1 1.78875e-307
+instr: 149, op1,2: 10 2 1.78875e-307
+_________Test 40_________
+E -> i
+E -> i
+E -> E o E
+vysledek: 2 typ: 0 ukon. lex.: 25
+instr: 37, op1,2: 10 2 1.78875e-307
+instr: 164, op1,2: 10 1 1.78875e-307
+_________Test 41_________
+E -> i
+E -> i
+E -> E o E
+vysledek: 1 typ: 0 ukon. lex.: 25
+instr: 48, op1,2: 10 0 1.78875e-307
+_________Test 42_________
+E -> i
+E -> i
+E -> E o E
+vysledek: 1 typ: 0 ukon. lex.: 25
+instr: 48, op1,2: 10 1 1.78875e-307
+_________Test 43_________
+E -> i
+E -> i
+E -> E o E
+vysledek: 1 typ: 0 ukon. lex.: 25
+instr: 42, op1,2: 10 0 1.78875e-307
+instr: 154, op1,2: 10 0 1.78875e-307
+_________Test 44_________
+E -> i
+E -> i
+E -> E o E
+vysledek: 1 typ: 0 ukon. lex.: 25
+instr: 42, op1,2: 10 0 1.78875e-307
+instr: 155, op1,2: 10 6821680 1.78875e-307
+_________Test 45_________
+E -> i
+E -> i
+E -> E o E

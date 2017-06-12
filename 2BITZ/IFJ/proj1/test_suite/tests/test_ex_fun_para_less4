@@ -1,0 +1,13 @@
+int foo(int x, int x2)
+{
+	return x + x2;
+}
+
+int main()
+{
+	int a;
+	a = foo(2);
+	
+	return 0;
+}
+

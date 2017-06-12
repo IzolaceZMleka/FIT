@@ -1,0 +1,2 @@
+int f(int param1);
+int f(int param1, int param2);
