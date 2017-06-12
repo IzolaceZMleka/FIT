@@ -1,0 +1,35 @@
+\documentclass[11pt,a4paper,titlepage]{article}
+\usepackage[left=2cm,text={17cm,24cm},top=3cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[czech]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{textcomp}
+\bibliographystyle{czplain}
+
+\begin{document}
+\begin{titlepage}
+\begin{center}
+{\Huge\textsc{Vysoké učení technické v~Brně}}\\
+\medskip
+{\huge\textsc{Fakulta informačních technologií}}\\
+\vspace{\stretch{0.382}}
+{\LARGE Typografie a publikování\,--\,4.\,projekt}\\
+\medskip
+{\Huge Bibliografické citace}\\
+\vspace{\stretch{0.618}}
+\end{center}
+{\Large \today \hfill Jan Pavlica}
+\end{titlepage}
+
+\section{Co je to \LaTeX?}
+Jednoduše a~ve zkratce by se dalo říci, že \LaTeX je sázecí program a~je taktéž rozšířením originálního programu \TeX, jehož autorem je Donald Knuth \cite{Latex_tutorials}. \LaTeX tudíž slouží k~tvorbě dokumentů, čímž se podobá například programu Microsoft Word. Nicméně zde podobnost končí. Tvorba dokumentu typicky spočívá v~užití textového editoru (např. Emacs, vi nebo dokonce Poznámkový blok) k~editaci zdrojového souboru s~příponou \emph{.tex} a náledného spuštění samotného \texttt{latex} programu, který převede zdrojový soubor do dokumentu (Postscript nebo PDF) \cite{McPeak:What_the_heck_is_Latex?}.
+
+\section{Jak začít s~\LaTeX em?}
+Pro úplného začátečníka se může zdát používání tohoto programu děsivé a~může leckoho na první pohled odradit. Zvláště pak práce s~tabulkami se může zdát náročná \cite{UU:Tables}. Není však třeba vytvářet předčasné závěry. Pro prvotní seznámení existuje značné množství publikací, a~to jak z~české \cite{Rybicka:Latex_pro_zacatecniky}, tak i~ze zahraniční \cite{Kottwitz:LaTeX_Begginers_Guide} literatury. Není problémem najít českou komunitu zabývající se \LaTeX em \cite{CSTug:web}.
+
+\section{Co s~ním?}
+Znalost \LaTeX u není rozhodně k zahození. Vždyť typografií se dnes zabývají celé časopisy \cite{Baseline}. \LaTeX je možno využít na mnoho způsobů. Není dokonce problémem například tvořit vektorovou grafiku \cite{UU:Vector}. Nicméně asi nejčastější použití bude k~tvorbě dokumentací k~projektům, či vysázení důležitých dokumentů u~kterých si chceme být jisti kvalitním zpracováním. Není tudíž divu, že mnoho bakalářských \cite{Pysny:BiBTex} a~diplomových prací \cite{Kyselak:Revizni_system_pro_LaTeX} je vysázeno v~\LaTeX u~nebo se přímo samotnou typografií zabývá.
+
+\newpage
+\bibliography{literatura}
+\end{document}

@@ -1,0 +1,130 @@
+#!/bin/sh
+
+export LC_ALL=C
+
+SOUBOR=false
+MOST=false
+LIST=false
+BEFORE=false
+AFTER=false
+LAST=false
+RUN="$EDITOR"
+MYPATH=""
+MYDATE=""
+
+after () {
+  printf "$(compare)\n%s" "$MYDATE" | sort | sed "0,/$MYDATE/d" | cut -c16- | grep "$MYPATH/.\+$" | grep -v "$MYPATH/.\+/.*" | sort -u | sed -e "s|$MYPATH/|""|g" | sed "/\b\/\b/d"
+}
+
+before () {
+  MYDATE=$(( MYDATE+1000000 ))
+  printf "$(compare)\n%s" "$MYDATE"| sort -r | sed "0,/$MYDATE/d" | cut -c16- | grep "$MYPATH/.\+$" | grep -v "$MYPATH/.\+/.*" | sort -u | sed -e "s|$MYPATH/|""|g" | sed "/\b\/\b/d"
+}
+
+compare () {
+grep -E "/($(ls -p | grep -v / | tr '\n' '|' | rev | cut -c2- | rev))" $WEDI_RC
+}
+
+
+
+
+if [ "$EDITOR" = "" ] ; then
+  if [ "$VISUAL" = "" ] ; then
+    >&2 echo "Není nastaven editor"
+    exit 1
+  else
+    RUN="$VISUAL"
+  fi
+elif [ -d "$WEDI_RC" ] ; then
+  >&2 echo "Cesta je adresář nikoliv soubor"
+  ecit 1
+elif [ "$WEDI_RC" = "" ] ; then
+  >&2 echo "Není zadaná cesta k souboru"
+  exit 1
+fi
+  
+
+if [ $# -eq 0 ] ; then
+  MYPATH=$(pwd -P)
+elif [ "$1" = "-m" ] ; then
+  shift
+  MYPATH=$*
+  MOST=true
+elif [ "$1" = "-l" ] ; then
+  shift
+  MYPATH=$*
+  LIST=true
+elif [ "$1" = "-b" ] ; then
+  shift
+  MYPATH=$*
+  if [ "$(echo "$MYPATH" | cut -c1-10 | grep -E '[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])')" ] ; then
+    MYDATE=$(echo "$MYPATH" | cut -c1-10)
+    MYPATH=$(echo "$MYPATH" | cut -c12-)
+  else
+    >&2 echo "Špatný formát data"
+    exit 1
+  fi
+  BEFORE=true
+elif [ "$1" = "-a" ] ; then
+  shift
+  MYPATH=$*
+  if [ "$(echo "$MYPATH" | cut -c1-10 | grep -E '[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])')" ] ; then
+    MYDATE=$(echo "$MYPATH" | cut -c1-10)
+    MYPATH=$(echo "$MYPATH" | cut -c12-)
+  else
+    >&2 echo "Špatný formát data"
+    exit 1
+  fi
+  AFTER=true
+else
+  MYPATH=$*
+fi
+
+if [ "$MYPATH" = "" ] ; then
+  MYPATH=$(pwd -P)
+fi
+
+if [ -d "$MYPATH" ]; then
+  MYPATH="$(cd -P "$MYPATH"; pwd -P)"
+else
+  if [ "$(echo "$MYPATH" | grep ".*/.*")" ]; then
+    MYPATH="$(cd -P "${MYPATH%/*}"; pwd -P)/${MYPATH##*/}"
+  else
+    MYPATH="$(pwd -P)/$MYPATH"
+  fi
+fi
+
+MYDATE=$(echo "$MYDATE"000000 | tr -d "-")
+
+if [ -d "$MYPATH" ] ; then
+  LAST=true
+else
+  SOUBOR=true
+fi
+
+
+if [ "$LAST" = true -a "$MOST" = false -a "$LIST" = false -a "$BEFORE" = false -a "$AFTER" = false ] ; then
+  MYPATH=$(compare | sort | cut -c16- | grep "$MYPATH/.\+$" | grep -v "$MYPATH/.\+/.*" | tail -1)
+  SOUBOR=true
+elif [ "$MOST" = true ] ; then
+  MYPATH="$(compare | cut -c16- | grep "$MYPATH/.\+$" | grep -v "$MYPATH/.\+/.*" | sort | uniq -c | sort | tail -1 | cut -c9-)"
+  SOUBOR=true
+elif [ "$LIST" = true ] ; then
+  compare | cut -c16- | grep "$MYPATH/.\+$" | grep -v "$MYPATH/.\+/.*" | sort -u | sed -e "s|$MYPATH/|""|g" | sed "/\b\/\b/d"
+elif [ "$BEFORE" = true ] ; then
+  before
+elif [ "$AFTER" = true ] ; then
+  after
+fi
+
+if [ "$MYPATH" = "" ] ; then	
+  >&2 echo "Žádný soubor nebyl editován v zadaném archivu."
+  exit 1
+fi
+
+if [ "$SOUBOR" = true ] ; then
+  $RUN "$MYPATH"
+  RETURN=$?
+  echo "$(date +%Y%m%d%H%M%S) $MYPATH">>"$WEDI_RC"
+  exit $RETURN
+fi
