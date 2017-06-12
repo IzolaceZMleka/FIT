@@ -81,9 +81,9 @@
 			+ [Projekt - Čtečka čárových kódů umožňující správu léků](3BITZ/IUMI/proj/) (14/15) - MIT App Inventor
 	+ letní semestr:
 		+ IJA - Seminář Java
-			+ [Úkol 1](3BITZ/IJA/ukol_1/) (4/4)
-			+ [Úkol 2](3BITZ/IJA/ukol_2/) (4/4)
-			+ [Úkol 3](3BITZ/IJA/ukol_3/) (2/2)
+			+ [Úkol 1](3BITL/IJA/ukol_1/) (4/4)
+			+ [Úkol 2](3BITL/IJA/ukol_2/) (4/4)
+			+ [Úkol 3](3BITL/IJA/ukol_3/) (2/2)
 			+ [Projekt - hra Solitaire (Klondike)](3BITL/IJA/proj/xpavli78) (90/90) - Java
 
 			
