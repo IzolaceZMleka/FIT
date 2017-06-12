@@ -1,0 +1,36 @@
+POPIS PROGRAMU
+	Program slouží k zachytávání a analýze CDP a LLDP packetů. Program je třeba spouštět s oprávněním.
+	Kromě zachytávání také umožňuje odesílání konfigurovatelných CDP a LLDP oznámení.
+
+PŘEKLAD PROGRAMU
+	Program je přeložen příkazem "make".
+	
+SPUŠTĚNÍ PROGRAMU
+
+	./myL2monitor -i <rozhraní> {--send-hello {--ttl <sekundy>} {--duplex [full|half]} {--software-version <verze>} {--device-id <identifikátor>} {--platform <platforma>} {--port-id <rozhraní>} {--capabilities <integer>} {--address <IPv4>}}
+
+	Přepínače:
+		-i <rozhraní>: Povinný parametr. Specifikuje lokální identifikátor rozhraní v operačním systému (např. eth0), na kterém bude aplikace naslouchat a případně odesílat zprávy;
+		--send-hello: Volitelný parametr. Pokud přítomen tento parametr není, tak aplikace jen naslouchá na rozhraní a vypisuje obsahy CDP a LLDP zpráv. Pokud je přítomen, tak aplikace i pravidelně generuje CDP oznámení, přičemž obsah TLV políček je specifikován následujícími volitelnými parametry.
+			--ttl <sekundy>: Volitelný parametr, specifikuje Time To Live v sekundách
+			--duplex [full|half]: Volitelný parametr, může nabývat dvou řetězcových hodnot, a to "half" či "full"
+			--platform <platforma>: Volitelný parametr, platforma zařízení
+			--software-version <verze>: Volitelný parametr, verze softwaru, který je nazřízení
+			--device-id <identifikátor>: Volitelný parametr, jméno zařízení
+			--port-id <rozhraní>: Volitelný parametr, jméno portu
+			--capabilities <integer>: Volitelný parametr, vlastnosti zařízení
+			--address <IPv4>: Volitelný parametr, IPv4 adresa zařízení
+			
+	Příklady spuštění:
+		./myL2monitor -i eth0
+		./myL2monitor -i eth0 --send-hello
+		./myL2monitor -i eth0 --send-hello --device-id moje_zarizeni
+
+
+SEZNAM SOUBORŮ
+	makefile
+	README
+	manual.pdf
+	isa2.c
+	isa2.h
+	topologie.png
