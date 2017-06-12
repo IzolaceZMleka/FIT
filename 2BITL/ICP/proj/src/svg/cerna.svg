@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="200"
+   height="200"
+   viewBox="0 0 200 200"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="cerna.svg">
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient4791"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#000000;stop-opacity:0.502"
+         offset="0"
+         id="stop4793" />
+      <stop
+         style="stop-color:#000000;stop-opacity:1"
+         offset="1"
+         id="stop4795" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4791"
+       id="radialGradient4144"
+       cx="294.28571"
+       cy="414.50507"
+       fx="294.28571"
+       fy="414.50507"
+       r="190"
+       gradientTransform="matrix(0.4007284,0,0,0.4007284,-88.32225,793.99004)"
+       gradientUnits="userSpaceOnUse"
+       spreadMethod="pad" />
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter4171"
+       x="-0.0876"
+       width="1.1752"
+       y="-0.0876"
+       height="1.1752">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="5.558103"
+         id="feGaussianBlur4173" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="0.9254902"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.56"
+     inkscape:cx="-41.245298"
+     inkscape:cy="108.64364"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1023"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     units="px" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Vrstva 2">
+    <circle
+       style="fill:#b3b3b3;fill-opacity:1;fill-rule:nonzero;stroke:#951818;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.61744965;opacity:0.481"
+       id="path4136-0"
+       cx="86.633759"
+       cy="108.80254"
+       r="76.138397"
+       transform="matrix(0.99773917,-0.06720523,0.06720523,0.99773917,0,0)" />
+    <path
+       style="opacity:0.628;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#951818;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.61744965;filter:url(#filter4171)"
+       d="M 147.04883,54.480469 A 73.242188,70.507812 0 0 1 160.54687,95.117188 73.242188,70.507812 0 0 1 87.304685,165.625 73.242188,70.507812 0 0 1 25.171875,132.37109 76.138397,76.138397 0 0 0 103.94531,189.24805 76.138397,76.138397 0 0 0 174.79492,108.16406 76.138397,76.138397 0 0 0 147.04883,54.480469 Z"
+       id="path4136-3"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:label="Vrstva 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-852.36216)">
+    <circle
+       style="fill:url(#radialGradient4144);fill-opacity:1;fill-rule:nonzero;stroke:#951818;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.61744965"
+       id="path4136"
+       cx="29.606367"
+       cy="960.09412"
+       r="76.138397"
+       transform="matrix(0.99773917,-0.06720523,0.06720523,0.99773917,0,0)" />
+  </g>
+</svg>

@@ -1,0 +1,74 @@
+Předmět: Počítačové sítě a komunikace 2015/2016
+Projekt 2: Přenos souborů
+Autor: Jan Pavlica
+Login: xpavli78
+Datum: 24.4.2016
+
+Informace o programu:
+----------------------------------------------------------------------------------
+Program slouží k přenosu souborů mezi serverem a klientem. Server je konkurentní.
+Server se spouští následovně:
+
+==================================================================================
+server -p port
+==================================================================================
+Kde jsou všechny parametry povinné.
+	port - číslo portu na kterém bude server naslouchat
+==================================================================================
+
+Po spuštění serveru může klient žádat buď o čtení (download) souboru ze serveru 
+nebo o zápis(upload) souboru na server. Žádosti jsou posílány clientem a to ve 
+tvaru:
+
+==================================================================================
+ client -h hostname -p port [-d|-u] file_name
+==================================================================================
+Kde jsou všechny parametry povinné.
+	hostname - určuje jméno serveru
+	port - číslo portu na kterém server naslouchá
+	-d - přepínač pro žádost o čtení
+	-u - přepínač pro žádost o upload
+	filename - jméno požadovaného souboru
+==================================================================================
+
+Při čtení bude soubor vyhledán v adresáři ze kterého je spuštěn server. V
+případě nalezení požadovaného souboru bude soubor odeslán klientovi a uložen do
+adresáře ze kterého je spuštěn klient.
+
+Při zápisu bude soubor vyhledán kdekoliv bude požadováno a uložen do adresáře, ze
+kterého je spuštěn server.
+
+V případě neoprávněného přístupu k souborům bude klient o této události informován
+a bude ukončen. V případě zadání nevalidního nebo neexistujícího souboru bude
+klient informován a ukončen. Program umí pracovat i se symbolickými odkazy.
+
+Je očekávan regulérní nebo binární soubor, který bude odeslán.
+----------------------------------------------------------------------------------
+
+Popis jednotlivých souborů:
+----------------------------------------------------------------------------------
+./test.sh - provede překlad zdrojových souborů a demonstraci funkčnosti programu
+	číslo portu je náhodně generováno v rozmezí 2000-65000
+
+	download/upload malých souborů
+	download/upload velkých souborů
+	download/upload binárních souborů
+	upload souborů mimo adresář odkud je client spouštěn
+
+	demonstrační skript si sám vytvoří většinu potřebných souborů
+	po provedení smaže všechny přenesené soubory a sám ukončí server
+
+./makefile - provede překlad zdrojových souborů
+	make clean - odstraní všechny soubory vzniklé při překladu
+	make - provede překlad clienta a serveru
+
+./server_dir/server.cpp - zdrojový kód pro server
+./server_dir/makefile - makefile pro server
+./server_dir/download.png - ukázkový soubor pro demonstraci funkčnosti programu
+
+./client_dir/client.cpp - zdrojový kód pro server
+./client_dir/makefile - makefile pro server
+./client_dir/upload.jpg - ukázkový soubor pro demonstraci funkčnosti programu
+---------------------------------------------------------------------------------
+
+

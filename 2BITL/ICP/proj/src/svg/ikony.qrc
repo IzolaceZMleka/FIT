@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/">
+        <file>technology.svg</file>
+        <file>letter-x.svg</file>
+        <file>ikony.qrc</file>
+        <file>icons.qrc</file>
+        <file>arrows-3.svg</file>
+        <file>arrows-2.svg</file>
+        <file>arrows-1.svg</file>
+        <file>arrows.svg</file>
+        <file>seda.svg</file>
+        <file>cerna.svg</file>
+        <file>bila.svg</file>
+        <file>bila_t.svg</file>
+        <file>background.jpg</file>
+        <file>back_tabs.jpg</file>
+    </qresource>
+</RCC>
