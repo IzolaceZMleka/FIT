@@ -1,8 +1,8 @@
 * 1BIT
 	+ zimní semestr:
 		+ IUS - Úvod do softwarové inženýrství
-			+ [Projekt 2 - Dokumentace k 2. projektu z IZP](1BITZ/IUS/proj2/) (9/10) - UML
-			+ [Projekt 3 - Model informačního systému](1BITZ/IUS/proj3) (18/20) - ERD  
+			+ [Projekt 2 - Dokumentace k 2. projektu z IZP](1BITZ/IUS/proj2/) (9/10)
+			+ [Projekt 3 - Model informačního systému](1BITZ/IUS/proj3) (18/20) - UML, ERD  
 		+ IZP - Základy programování
 			+ [Projekt 1 - Výpočty v tabulce](1BITZ/IZP/proj1/) (4/5) - jazyk C
 			+ [Projekt 2 - Iterační výpočty](1BITZ/IZP/proj2/) (9/10) - jazyk C
