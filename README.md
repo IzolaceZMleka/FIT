@@ -86,4 +86,12 @@
 			+ [Úkol 3](3BITL/IJA/ukol_3/) (2/2)
 			+ [Projekt - hra Solitaire (Klondike)](3BITL/IJA/proj/xpavli78) (90/90) - Java
 
-			
+* 1MIT
+	+ zimní semestr:
+		+ GJA - Grafická uživatelská rozhraní v Javě
+			+ [Projekt - Vyukové materiály k Java EE](1MITZ/GJA/proj/) (37/39) - Java
+		+ PDB - Pokročilé databázové systémy
+			+ [Projekt - Prostorové, multimediální a temporální databáze](1MITZ/PDB/proj/) (20/20) - Java
+		+ ACH - Architektura procesorů
+			+ [Projekt 1 - Optimalizace sekvenčního kodu (vektorizace)](1MITZ/ACH/proj1/) (5/10) - jazyk C/C++
+			+ [Projekt 2 - CUDA](1MITZ/ACH/proj2/) (9/15) - jazyk C/C++
