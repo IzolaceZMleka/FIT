@@ -1,0 +1,341 @@
+--@author Daniel Vosáhlo
+
+-- SIMPLE SELECT
+
+- DESCRIPTION
+    Select how many animals were ill in 2016
+
+- TSQL2
+    nonsequenced validtime select count(DISTINCT idZvirete) from
+	    (validtime period[2016-2016/12/31) select * from umisteni) year
+    where (idvybehu='6');
+
+- SIMPLE SQL
+         SELECT COUNT(DISTINCT idZvirete) AS animalCount FROM umisteni WHERE 
+        (
+            idvybehu = 6 AND 
+            (
+               (umisteniOd BETWEEN TO_DATE('2016/01/01', 'yyyy/mm/dd') AND TO_DATE('2016/12/31', 'yyyy/mm/dd')) OR 
+               (umisteniDo BETWEEN TO_DATE('2016/01/01', 'yyyy/mm/dd') AND TO_DATE('2016/12/31', 'yyyy/mm/dd')) OR
+               ((umisteniDo > TO_DATE('2016/12/31', 'yyyy/mm/dd') OR umisteniDo IS NULL) AND umisteniOd < TO_DATE('2016/01/01', 'yyyy/mm/dd'))
+            )
+        );
+
+-A PLICATION USAGE
+
+    zvireModel.AnimalCountInEnclosureInYear("2016",6);
+    *
+    *
+    *
+    int count = 0;
+    String query = "SELECT COUNT(DISTINCT idZvirete) AS animalCount FROM umisteni WHERE " +
+                    "(" +
+                        " idvybehu = " + id +" AND" +
+                        " (" +
+                            " (umisteniOd BETWEEN TO_DATE('" + year +"/01/01', 'yyyy/mm/dd') AND TO_DATE('" + year +"/12/31', 'yyyy/mm/dd')) OR" + //From 1.1 - 31.12 OR
+                            " (umisteniDo BETWEEN TO_DATE('" + year +"/01/01', 'yyyy/mm/dd') AND TO_DATE('" + year +"/12/31', 'yyyy/mm/dd')) OR" + //To 1.1 - 31.12 OR
+                            " ((umisteniDo > TO_DATE('" + year +"/12/31', 'yyyy/mm/dd') OR umisteniDo IS NULL) AND umisteniOd < TO_DATE('" + year +"/01/01', 'yyyy/mm/dd'))"+ //(To > 31.12 OR animal is still in) AND From <1.1
+                        " )" +
+                    " )";
+
+     OracleResultSet rs = (OracleResultSet)stmt.executeQuery(query);
+
+     rs.next();
+     count = rs.getInt("animalCount");
+
+     rs.close();
+     stmt.close();
+     return count;
+______________________________________________________________________________________________
+-- SELECT WITH JOIN
+    
+- DESCRIPTION
+    Select all names of enclosures where the specific animal was.
+
+-TSQL2
+    VALIDTIME SELECT vb.id, vb.jmeno, zv.jmeno FROM umisteni um, zvire zv, vybeh vb WHERE zv.id = um.idZvirete AND um.idVybehu = vb.id;
+
+-SIMPLE SQL
+    SELECT vybeh.id, vybeh.jmeno AS jmenoV, zvire.jmeno AS jmenoZ, umisteni.umisteniOd, umisteni.umisteniDo 
+    FROM zvire INNER JOIN umisteni ON zvire.id = umisteni.idZvirete INNER JOIN vybeh ON umisteni.idVybehu = vybeh.id 
+    WHERE zvire.id = 6 
+    ORDER BY umisteni.umisteniOd;
+
+-APLICATION USAGE
+    zvireModel.GetAnimalEnclosureHistory(6);
+    *   
+    *
+    *
+    List<HistorieUmisteni> list = new ArrayList<HistorieUmisteni>();
+    String query = "SELECT vybeh.id, vybeh.jmeno AS jmenoV, zvire.jmeno AS jmenoZ, umisteni.umisteniOd, umisteni.umisteniDo " +
+                        "FROM zvire INNER JOIN umisteni ON zvire.id = umisteni.idZvirete INNER JOIN vybeh ON umisteni.idVybehu = vybeh.id " +
+                        "AND zvire.id = ? " +
+                        "ORDER BY umisteni.umisteniOd";
+
+                OraclePreparedStatement ps = (OraclePreparedStatement) dbConnection.prepareStatement(query);
+                ps.setInt(1, id);
+
+                OracleResultSet rs = (OracleResultSet)ps.executeQuery();
+
+                while(rs.next()) {
+                    list.add(new HistorieUmisteni(
+                            rs.getInt("id"),
+                            rs.getString("jmenoV"),
+                            rs.getString("jmenoZ"),
+                            rs.getTimestamp("umisteniOd"),
+                            rs.getTimestamp("umisteniDo")
+                           ));
+                }
+
+                rs.close();
+                ps.close();
+______________________________________________________________________________________________
+-- SELECT WITH JOIN
+
+- DESCRIPTION
+    Count all females in specified enclosure in 2000
+-TSQL2
+nonsequenced validtime select count(DISTINCT idZvirete) from
+	(validtime period[2000-2000/12/31) SELECT * FROM umisteni um, zvire zv, vybeh vb WHERE zv.id = um.idZvirete AND um.idVybehu = vb.id) year
+where (idvybehu='6' AND zvire.pohlavi = 'samice');
+
+
+-SIMPLE SQL
+  SELECT COUNT(DISTINCT idZvirete) AS animalCount FROM 
+    (SELECT * FROM 
+        zvire INNER JOIN umisteni ON zvire.id = umisteni.idZvirete INNER JOIN vybeh ON umisteni.idVybehu = vybeh.id 
+        WHERE 
+            (
+                idvybehu = 6 AND 
+                (
+                   (umisteniOd BETWEEN TO_DATE('2000/01/01', 'yyyy/mm/dd') AND TO_DATE('2000/12/31', 'yyyy/mm/dd')) OR 
+                   (umisteniDo BETWEEN TO_DATE('2000/01/01', 'yyyy/mm/dd') AND TO_DATE('2000/12/31', 'yyyy/mm/dd')) OR
+                   ((umisteniDo > TO_DATE('2000/12/31', 'yyyy/mm/dd') OR (umisteniDo IS NULL AND 2000 <= extract(year from sysdate))) AND umisteniOd < TO_DATE('2000/01/01', 'yyyy/mm/dd'))
+                )
+            )) 
+   WHERE pohlavi LIKE 'samice';
+
+-APLICATION USAGE
+
+    zvireModel.GetAnimalCountByGenderAndYearInEnclosure(1, "2016", false);
+    *
+    *
+    *
+    String gender;
+
+        if(inputGender == true){
+            gender = "samec";
+        }
+        else{
+            gender = "samice";
+        }
+
+        try {
+             String query = "SELECT COUNT(DISTINCT idZvirete) AS animalCount FROM " +
+                        "(SELECT * FROM " +
+                        "zvire INNER JOIN umisteni ON zvire.id = umisteni.idZvirete INNER JOIN vybeh ON umisteni.idVybehu = vybeh.id " +
+                        "WHERE " +
+                            "(" +
+                                "idvybehu = " + id + " AND " +
+                                " (" +
+                                    " (umisteniOd BETWEEN TO_DATE('" + year +"/01/01', 'yyyy/mm/dd') AND TO_DATE('" + year +"/12/31', 'yyyy/mm/dd')) OR" + //From 1.1 - 31.12 OR
+                                    " (umisteniDo BETWEEN TO_DATE('" + year +"/01/01', 'yyyy/mm/dd') AND TO_DATE('" + year +"/12/31', 'yyyy/mm/dd')) OR" + //To 1.1 - 31.12 OR
+                                    " (" +
+                                        "(umisteniDo > TO_DATE('" + year +"/12/31', 'yyyy/mm/dd') OR " +
+                                        "(umisteniDo IS NULL AND " + year +" <= extract(year from sysdate))" +
+                                    ") AND " +
+                                    "umisteniOd < TO_DATE('" + year +"/01/01', 'yyyy/mm/dd'))"+ //(To > 31.12 OR animal is still in) AND From <1.1
+                                " )" +
+                            ")) " +
+                    "WHERE pohlavi LIKE '"+ gender +"'";
+
+            Statement stmt = dbConnection.createStatement();
+
+            OracleResultSet rs = (OracleResultSet) stmt.executeQuery(query);
+
+            rs.next();
+
+            count = rs.getInt("animalCount");
+
+            rs.close();
+            stmt.close();
+______________________________________________________________________________________________
+-- UPDATE
+
+- DESCRIPTION
+    Update animal Enclosure id in specified period
+
+-TSQL2
+    VALIDTIME PERIOD [2016/09/05-2017/09/10) UPDATE umisteni SET idVybehu = 3 WHERE (id = 6);
+
+-SIMPLE SQL
+  CREATE OR REPLACE PROCEDURE updateUmisteni(pAnimalId IN INT, pFrom IN TIMESTAMP, pTo IN TIMESTAMP, pNewUmisteni IN INT, pNewId IN INT) IS
+    -- Inicialize vars
+      animalId INT;
+      dateFrom TIMESTAMP;
+      dateTo TIMESTAMP;
+      newUmisteni INT;
+      isUpdated BOOLEAN;
+      oldFrom TIMESTAMP;
+      oldTo TIMESTAMP;
+      oldLoc INT;
+      newId INT;
+      
+    BEGIN
+    -- Filling vars
+      animalId  := pAnimalId;
+      dateFrom := pFrom;
+      dateTo := pTo;
+      newUmisteni := pNewUmisteni;
+      newId := pNewId;
+      
+      -- For all results which are lower or equal that he input interval AND their and is higher that the end of the interval
+      FOR i IN (SELECT * FROM umisteni um
+                  WHERE um.idZvirete = animalId AND (um.umisteniOd <= dateTo AND NVL(um.umisteniDo, SYSDATE) >= dateFrom)
+                  ORDER BY um.umisteniOd) 
+      LOOP 
+      
+        isUpdated := FALSE;
+        IF (i.umisteniOd  < dateFrom) THEN
+          IF (i.idVybehu = newUmisteni) THEN 
+          --We set the start of the new interval to old interval start
+            dateFrom := i.umisteniOd;
+          ELSE 
+          --We temporary store the values
+            oldFrom := i.umisteniOd;
+            oldTo:= dateFrom;
+            oldLoc := i.idVybehu;
+            
+            UPDATE umisteni
+            SET umisteniDo = oldTo, umisteniOd = oldFrom, idVybehu = oldLoc
+            WHERE id = i.id;
+            --We update the i.from do new interval from
+            i.umisteniOd := dateFrom;
+            isUpdated := TRUE; 
+          END IF;
+        END IF;
+        --If the i.to is <= new interval to
+        IF (NVL(i.umisteniDo, SYSDATE) <= dateTo) THEN
+        --We didnt updated
+          IF (isUpdated = FALSE) THEN
+            DELETE umisteni
+            WHERE id = i.id; 
+          END IF;
+        --Or we updated and idvybehu are equal
+        ELSE IF (i.idVybehu = newUmisteni) THEN
+            --We set new interval to to current interval to
+            dateTo := i.umisteniDo;
+            
+            DELETE umisteni
+            WHERE id = i.id;
+        --Or we didnt updated
+        ELSE IF (isUpdated = FALSE) THEN
+        
+            DELETE umisteni
+            WHERE id = i.id;
+        END IF;
+          
+          i.umisteniOd := dateTo;
+
+        --We insert new changed interval
+        INSERT INTO umisteni (id, idVybehu, idZvirete, umisteniOd, umisteniDo)
+        VALUES (newId, i.idvybehu, animalId, i.umisteniOd, i.umisteniDo); 
+        newId := newId + 1;
+        END IF; END IF;
+      END LOOP;
+          --We must check for 9998/01/01 (means null)
+        IF (dateTo > TO_TIMESTAMP('9998/01/01', 'yyyy/mm/dd hh24:mi:ss')) THEN
+        dateTo := NULL;  
+        END IF;
+      INSERT INTO umisteni (id, idVybehu, idZvirete, umisteniOd, umisteniDo) VALUES (newId, newUmisteni, animalId, dateFrom, dateTo);
+      
+      COMMIT;
+    END;
+
+-APLICATION USAGE
+    zvireModel.UpdateUmisteniInInterval(6, "2016/09/05", "2017/09/10", 3);
+    *
+    *
+    *
+    int newId = this.generateNextId("umisteni", "id");
+
+        try {
+
+            if (to.equals("null")){
+                to = "9999/01/01";
+            }
+            String query = "BEGIN updateUmisteni(" + id + ", TO_TIMESTAMP('" + from + "', 'yyyy/mm/dd hh24:mi:ss') , TO_TIMESTAMP('" + to + "', 'yyyy/mm/dd hh24:mi:ss')," + newUmisteni +" ," + newId +"); END;";
+
+            Statement stmt = dbConnection.createStatement();
+
+            stmt.executeQuery(query);
+______________________________________________________________________________________________
+-- DELETE
+
+- DESCRIPTION
+    Delete animal in enclosure in given interval, then return it back. (Animal is not in the zoo, animal returns).
+
+-TSQL2
+    VALIDTIME PERIOD [2002/05/15-2004/05/15) DELETE FROM umisteni WHERE (idZvirete = 1);
+
+-SIMPLE SQL
+      Create or replace PROCEDURE deleteUmisteni(pId IN INT, pFrom IN TIMESTAMP, pTo IN TIMESTAMP, pNewId INT) IS
+          animalId INT;
+          dateFrom TIMESTAMP;
+          dateTo TIMESTAMP;
+          isUpdated BOOLEAN;
+          newId INT;
+        BEGIN 
+          animalId := pId;
+          dateFrom := pFrom;
+          dateTo := pTo;
+          newId := pNewId;
+
+          FOR i IN (SELECT um.id, um.idvybehu, um.umisteniOd, um.umisteniDo FROM umisteni um
+                      WHERE um.idZvirete = animalId AND (um.umisteniOd <= dateTo AND NVL(um.umisteniDo, SYSDATE) >= dateFrom)) 
+          LOOP
+            isUpdated := FALSE;
+            IF (i.umisteniOd < dateFrom) THEN
+              UPDATE umisteni
+              SET umisteniDo = dateFrom
+              WHERE id = i.id;
+
+              i.umisteniOd := dateFrom;
+              isUpdated := TRUE; 
+            END IF;
+
+            IF (i.umisteniOd >= dateFrom AND TO_TIMESTAMP(NVL(i.umisteniDo, SYSDATE)) <= dateTo) THEN
+              IF (isUpdated = FALSE) THEN 
+                DELETE umisteni
+                WHERE id = i.id;
+              END IF;
+            ELSE
+              i.umisteniOd := dateTo;
+              IF (isUpdated = TRUE) THEN 
+                INSERT INTO umisteni (id, idvybehu, idZvirete, umisteniOd, umisteniDo)
+                VALUES (newId, i.idvybehu, animalId, i.umisteniOd, i.umisteniDo);
+                newId := newId +1;
+              ELSE
+                UPDATE umisteni
+                SET umisteniDo = i.umisteniDo, umisteniOd = i.umisteniOd
+                WHERE id = i.id; 
+             END IF; 
+            END IF;
+          END LOOP;
+          COMMIT;
+        END;
+
+-APLICATION USAGE
+    zvireModel.DeleteTimeInterval(4, "2002/05/15 10:00:11", "2004/05/15 10:00:11");
+    *
+    *
+    *
+    int newId = this.generateNextId("umisteni", "id");
+
+        try {
+            String query = "BEGIN deleteUmisteni(" + id + ", TO_TIMESTAMP('" + from + "', 'yyyy/mm/dd hh24:mi:ss') , TO_TIMESTAMP('" + to + "', 'yyyy/mm/dd hh24:mi:ss'), " + newId +"); END;";
+
+            Statement stmt = dbConnection.createStatement();
+
+            stmt.executeQuery(query);
+

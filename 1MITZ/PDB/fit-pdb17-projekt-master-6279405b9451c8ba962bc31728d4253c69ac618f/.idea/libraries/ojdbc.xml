@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="ojdbc">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/pdb-zoo/lib/ojdbc/ojdbc5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/pdb-zoo/lib/ojdbc/ojdbc6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/pdb-zoo/lib/ojdbc/ojdbc7.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

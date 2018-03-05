@@ -1,0 +1,54 @@
+﻿Architektura procesorů (ACH 2017)
+Projekt č. 2
+Login: xlogin00
+
+
+Krok 0: základní implementace
+=============================
+vláken/blok    čas [s]
+32             0.079707 s
+64             0.080055 s
+96             0.079494 s
+128            0.079276 s
+256            0.080727 s
+512            0.074721 s
+1024           0.077257 s
+
+Ideální počet vláken na blok:
+512
+
+Krok 1: optimalizace kódu
+=====================
+Došlo ke zrychlení?
+Ano došlo. t = 0.048629 s
+Popište dva hlavní důvody:
+Nemusí se vše procházet 2x - 2x více přístupu do globální paměti. Zvýšení activity procesoru. Odstranění zbytečných výpočtů.
+
+Porovnejte metriky s předchozím krokem:
+Došlo ke snížení přístupu do globální paměti, snížení počtu operací a zvýšení efektivity.
+
+Krok 2: sdílená paměť
+=====================
+Došlo ke zrychlení?
+Ano. Time: 0.037705 s
+
+Zdůvodnete:
+Není třeba tolik přístupů do globální paměti (cca 2x méně).
+
+Porovnejte metriky s předchozím krokem:
+Shared Memory Efficiency z 0% -> 98.5%. Počet přístupů do globální paměti 2x méně.
+
+
+Krok 3: analýza výkonu
+======================
+N        čas CPU [s]    čas GPU [s]    propustnost paměti [MB/s]	výkon [MFLOPS]    zrychlení [-]
+1024     ...            ...            ...							...               ...			
+2048     ...            ...            ...							...               ...
+4096     ...            ...            ...							...               ...
+...      ...            ...            ...							...               ...
+131072   ...            ...            ...							...               ...
+
+Od jakého počtu částic se vyplatí počítat na grafické kartě?
+
+===================================
+

@@ -1,0 +1,65 @@
+.custom-text-block {
+	font-size: 16px;
+}
+
+.custom-h3 {
+	margin-top: 0px;
+	margin-bottom: 10px;
+}
+
+.custom-h4 {
+    font-size: 20px;
+	margin-top: 20px;
+	margin-bottom: 5px;
+}
+
+.custom-code-block {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.custom-code {
+	all: unset;
+}
+
+.no-margin {
+    margin: 0px;
+}
+
+.arrow-down {
+    width: 0;
+    height: 0;
+    border-top: 20px solid;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+}
+
+#maven .arrow-down {
+    margin-left: 35px;
+}
+
+#maven-lifecycle section {
+	float: none;
+	clear: both;
+    margin: 10px auto;
+    overflow: auto;
+}
+#maven-lifecycle section > * {
+    float: left;
+    margin: 0px;
+}
+#maven-lifecycle section h4 {
+    padding: 5px;
+    width: 150px;
+    color: black;
+    text-align: center;
+    font-size: 1.5em;
+    border-radius: 5px;
+    border: 1px solid blue;
+}
+#maven-lifecycle section p {
+    margin-left: 20px;
+    font-size: 1.2em;
+    height: 20px;
+}
+

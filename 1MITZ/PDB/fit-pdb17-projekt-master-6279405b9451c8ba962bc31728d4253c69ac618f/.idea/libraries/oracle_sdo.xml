@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="oracle.sdo">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/pdb-zoo/lib/oracle.sdo/georasterapi.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/pdb-zoo/lib/oracle.sdo/sdovis3d.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

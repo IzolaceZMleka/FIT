@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:composite="http://java.sun.com/jsf/composite">
+
+    <composite:interface>
+        <composite:attribute name="nameLabel" />
+        <composite:attribute name="nameValue" />
+
+        <composite:attribute name="passwordLabel" />
+        <composite:attribute name="passwordValue" />
+
+        <composite:attribute name="rememberLabel" />
+        <composite:attribute name="rememberValue" />
+
+        <composite:attribute name="submitText" />
+        <composite:attribute name="submitAction"
+                             method-signature="java.lang.String action()" />
+    </composite:interface>
+
+    <composite:implementation>
+
+        <h:form>
+            <h:message for="textPanel" />
+
+            <h:panelGrid columns="2" id="textPanel">
+                <h:outputLabel for="name" value="#{cc.attrs.nameLabel}" />
+                <h:inputText id="name" value="#{cc.attrs.nameValue}" />
+
+                <h:outputLabel for="password" value="#{cc.attrs.passwordLabel}" />
+                <h:inputSecret id="password" value="#{cc.attrs.passwordValue}" />
+
+                <h:outputLabel for="remember" value="#{cc.attrs.rememberLabel}" />
+                <h:selectBooleanCheckbox id="remember" value="#{cc.attrs.rememberValue}" />
+            </h:panelGrid>
+
+            <h:commandButton action="#{cc.attrs.submitAction}"
+                             value="#{cc.attrs.submitText}" />
+        </h:form>
+
+    </composite:implementation>
+</html>
+

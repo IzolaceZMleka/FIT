@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="oracle.ordim.jai">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/pdb-zoo/lib/oracle.ordim.jai/ordimdcm.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/pdb-zoo/lib/oracle.ordim.jai/jai_core.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/pdb-zoo/lib/oracle.ordim.jai/ordimimg.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/pdb-zoo/lib/oracle.ordim.jai/jai_codec.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

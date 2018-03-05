@@ -1,0 +1,23 @@
+xpavli78:
+    step0         2         (max 2)
+    step1         1         (max 2)
+        Chybí declare simd dovìtky linear (p1, vel) a uniform (p2) pro efektivnìjší knihovní funkce.
+    step2         0         (max 2)
+        Struktùra není zarovnaná. Kompilátor je informován chybnì.
+        Signatura funkcí je (linear:28,linear:28,linear:12). Particle I by šla naèítat pøed cyklem s J.
+        Vzniklo by (linear:28, uniform ,linear:12) které šetøí pamì a je i rychlejší.   
+    step3.1       0.5       (max 0.5)
+    step3.2       0         (max 0.5)
+        Chybí dovìtky declare simd.
+    step3.3       0.5       (max 0.5)
+        Pozn: tvorba èástic je zbyteènı Store. Zvlaštì kdy pøedchozí krok pracoval pouze se základními typy.
+    step4         0.5       (max 1.5)
+        Chybí redukce
+        Redundantní vıpoèty(poèítá se to same) IF-ELSE prodrauje vıpoèty, vıhonìjší by byl ternální operátor
+        kde by nìkteré vıpoèty(jejich vısledky) byly nadbyteèné, ale SIMD by procházel tìlo jen jednou.
+        
+    code style     1        (max 1)    
+
+    Pokuta: -0.5b zanoøení projektu v archivu neodpovidalo zadané struktuøe
+
+    celkem         5        (max 10)

@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Navigation</title>
+        <style>a { margin-right: 2em; }</style>
+    </h:head>
+    <h:body>
+        <h1>Navigation</h1>
+
+        <h2>Implicit navigation</h2>
+        <h:form>
+            <h3>Using Navigation.showPage1()</h3>
+            <h:commandButton action="#{navigation.showPage1}"
+                             value="Page1" />
+        </h:form>
+
+        <h2>Conditional navigation</h2>
+        <h:form>
+            <h3>Using Navigation.show()</h3>
+            <h:commandLink action="#{navigation.show}"
+                           value="Page1">
+                <f:param name="pageId" value="1" />
+            </h:commandLink>
+            <h:commandLink action="#{navigation.show}"
+                           value="Page2">
+                <f:param name="pageId" value="2" />
+            </h:commandLink>
+            <h:commandLink action="#{navigation.show}"
+                           value="Home">
+                <f:param name="pageId" value="3" />
+            </h:commandLink>
+        </h:form>
+
+        <h2>Forward vs redirect</h2>
+        <p>Keep eye on the URL.</p>
+        <h:form>
+            <h3>Forward</h3>
+            <h:commandButton action="page1" value="Page1" />
+            <h3>Redirect</h3>
+            <h:commandButton action="page1?faces-redirect=true" value="Page1" />
+        </h:form>
+    </h:body>
+</html>
+

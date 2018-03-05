@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:custom="http://xmlns.jcp.org/jsf/composite/custom">
+    <!-- "custom" reffers to folder name -->
+    <h:head>
+        <title>Custom component</title>
+    </h:head>
+    <h:body>
+        <h1>Custom component</h1>
+
+        <custom:login nameLabel="Name"
+                      nameValue="#{authenticator.name}"
+                      passwordLabel="Password"
+                      passwordValue="#{authenticator.password}"
+                      rememberLabel="Remember"
+                      rememberValue="#{authenticator.remember}"
+                      submitText="Login"
+                      submitAction="#{authenticator.authenticate()}" />
+    </h:body>
+</html>
+

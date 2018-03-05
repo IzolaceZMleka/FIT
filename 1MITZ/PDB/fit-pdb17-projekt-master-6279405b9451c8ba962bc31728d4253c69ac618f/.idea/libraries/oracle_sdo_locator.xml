@@ -1,0 +1,22 @@
+<component name="libraryTable">
+  <library name="oracle.sdo.locator">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/pdb-zoo/lib/oracle.sdo.locator/sdondmx.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/pdb-zoo/lib/oracle.sdo.locator/sdonm.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/pdb-zoo/lib/oracle.sdo.locator/sdotype.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/pdb-zoo/lib/oracle.sdo.locator/sdondmapps.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/pdb-zoo/lib/oracle.sdo.locator/sdoapi.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/pdb-zoo/lib/oracle.sdo.locator/sdordf.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/pdb-zoo/lib/oracle.sdo.locator/sdowshandlers.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/pdb-zoo/lib/oracle.sdo.locator/sdotopo.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/pdb-zoo/lib/oracle.sdo.locator/sdogr.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/pdb-zoo/lib/oracle.sdo.locator/sdondme.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/pdb-zoo/lib/oracle.sdo.locator/sdowspool.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/pdb-zoo/lib/oracle.sdo.locator/routeserver.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/pdb-zoo/lib/oracle.sdo.locator/routepartition.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/pdb-zoo/lib/oracle.sdo.locator/sdoshp.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane prefHeight="700.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainFormController">
+   <children>
+      <SplitPane dividerPositions="0.5902255639097744" layoutY="24.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="671.0" prefWidth="963.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+        <items>
+          <AnchorPane fx:id="pane" maxHeight="500.0" maxWidth="500.0" minHeight="500.0" minWidth="500.0" prefHeight="500.0" prefWidth="500.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="574.0" prefWidth="435.0">
+               <children>
+                  <TabPane fx:id="tabPane" layoutY="2.0" prefHeight="564.0" prefWidth="449.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab text="Mapa">
+                        <content>
+                          <AnchorPane fx:id="tab" minHeight="0.0" minWidth="0.0" prefHeight="586.0" prefWidth="449.0">
+                                 <children>
+                                    <Button fx:id="save" layoutX="101.0" layoutY="490.0" mnemonicParsing="false" onAction="#handlebtnGetAreasCountAction" text="Save" visible="false" />
+                                    <Label layoutX="21.0" layoutY="82.0" prefHeight="25.0" prefWidth="63.0" text="Název:" />
+                                    <Label layoutX="21.0" layoutY="107.0" prefHeight="25.0" prefWidth="66.0" text="Popis:" />
+                                    <Label layoutX="21.0" layoutY="34.0" prefHeight="25.0" prefWidth="73.0" text="ID objektu:" />
+                                    <TextArea fx:id="vybehInfo" editable="false" focusTraversable="false" layoutX="113.0" layoutY="107.0" prefHeight="200.0" prefWidth="200.0" wrapText="true" />
+                                    <TextField fx:id="vybehNazev" editable="false" focusTraversable="false" layoutX="113.0" layoutY="82.0" />
+                                    <Label fx:id="objektID" layoutX="113.0" layoutY="38.0" prefHeight="17.0" prefWidth="180.0" />
+                                    <Button fx:id="edit" layoutX="23.0" layoutY="490.0" mnemonicParsing="false" onAction="#handlebtnGodMod" text="Edituj" />
+                                    <Button fx:id="btnDelete" layoutX="301.0" layoutY="490.0" mnemonicParsing="false" onAction="#handleBtnDelete" text="Delete" visible="false" />
+                                    <Button fx:id="btnChangeToCompare" layoutX="254.0" layoutY="335.0" mnemonicParsing="false" onAction="#handleBtnChangeToCompare" prefHeight="25.0" prefWidth="118.0" text="Porovnání výběhů" />
+                                    <Label fx:id="labelPlochaDotyk" layoutX="21.0" layoutY="351.0" text="Plocha objektu:" />
+                                    <Label fx:id="labelObvodPrunik" layoutX="21.0" layoutY="330.0" text="Obvod objektu:" />
+                                    <Button fx:id="changeToHighlightClose" layoutX="21.0" layoutY="406.0" mnemonicParsing="false" onAction="#handleBtnChangeToHighlightClose" prefHeight="25.0" prefWidth="217.0" text="Zobraz objekty vzdálené maximálně:" />
+                                    <Label fx:id="resObvodPrunik" layoutX="113.0" layoutY="331.0" prefHeight="17.0" prefWidth="180.0" />
+                                    <Label fx:id="redObvodDotyk" layoutX="113.0" layoutY="351.0" prefHeight="17.0" prefWidth="180.0" />
+                                    <TextField fx:id="inDistance" layoutX="252.0" layoutY="406.0" text="0" />
+                                    <Label fx:id="labelDistance" layoutX="22.0" layoutY="374.0" text="Vzdálenost:" visible="false" />
+                                    <Label fx:id="resDistance" layoutX="112.0" layoutY="374.0" prefHeight="17.0" prefWidth="120.0" text="PLACEHOLDER" visible="false" />
+                                    <Button fx:id="btnNormalMod" layoutX="251.0" layoutY="335.0" mnemonicParsing="false" onAction="#handleBtnNormalMod" text="Klasické zobrazování" visible="false" />
+                                    <Button fx:id="btnAdd" layoutX="350.0" layoutY="490.0" mnemonicParsing="false" onAction="#handleAddBtn" text="Přidej" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                      <Tab text="Zvířata">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TableView fx:id="tableZvirata" layoutX="14.0" layoutY="83.0" prefHeight="396.0" prefWidth="420.0">
+                                      <columns>
+                                        <TableColumn fx:id="tableDruh" prefWidth="113.0" text="Druh" />
+                                        <TableColumn fx:id="tableJmeno" prefWidth="98.0" text="Jméno" />
+                                          <TableColumn fx:id="tablePohlavi" prefWidth="98.0" text="Pohlaví" />
+                                          <TableColumn fx:id="tableDatumNarozeni" prefWidth="110.0" text="Datum narození" />
+                                      </columns>
+                                    </TableView>
+                                    <DatePicker fx:id="datePickerOd" layoutX="80.0" layoutY="33.0" />
+                                    <DatePicker fx:id="datePickerDo" layoutX="261.0" layoutY="33.0" />
+                                    <Button fx:id="btnAddAnimal" layoutX="14.0" layoutY="33.0" mnemonicParsing="false" onAction="#handleBtnAddAnimal" text="Přidej" />
+                                    <Button fx:id="enHistoryBtn" layoutX="120.0" layoutY="496.0" mnemonicParsing="false" onAction="#handleEnHistoryBtn" prefHeight="25.0" prefWidth="208.0" text="Zobraz historii zvířat ve výběhu" />
+                                 </children></AnchorPane>
+                        </content>
+                      </Tab>
+                        <Tab text="Zaměstnanci">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TableView fx:id="tableZam" layoutX="11.0" layoutY="14.0" prefHeight="513.0" prefWidth="429.0">
+                                      <columns>
+                                        <TableColumn fx:id="zamID" prefWidth="43.0" text="ID" />
+                                        <TableColumn fx:id="zamJmeno" prefWidth="107.0" text="Jméno" />
+                                          <TableColumn fx:id="zamPrijmeni" prefWidth="125.0" text="Přijmení" />
+                                          <TableColumn fx:id="zamLogin" prefWidth="130.0" text="Login" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+                  <Label layoutX="21.0" layoutY="598.0" prefHeight="25.0" prefWidth="104.0" text="Počet zvířat v roce" />
+                  <TextField fx:id="editYearForAnimalCount" layoutX="125.0" layoutY="598.0" prefHeight="25.0" prefWidth="45.0" text="2017" />
+                  <Label layoutX="177.0" layoutY="602.0" text=":" />
+                  <Label fx:id="labelAnimalCount" layoutX="341.0" layoutY="602.0" prefHeight="17.0" prefWidth="52.0" text="0" />
+                  <Label layoutX="21.0" layoutY="630.0" prefHeight="25.0" prefWidth="104.0" text="Počet zvířat v roce" />
+                  <TextField fx:id="editYearForAnimalCount1" layoutX="125.0" layoutY="630.0" prefHeight="25.0" prefWidth="45.0" text="2017" />
+                  <Label fx:id="labelAnimalCount1" layoutX="177.0" layoutY="634.0" prefHeight="17.0" prefWidth="45.0" text="pohlaví" />
+                  <ChoiceBox fx:id="choiceGender" layoutX="222.0" layoutY="630.0" prefHeight="25.0" prefWidth="104.0" />
+                  <Label layoutX="332.0" layoutY="634.0" text=":" />
+                  <Label fx:id="labelAnimalCount2" layoutX="341.0" layoutY="634.0" prefHeight="17.0" prefWidth="52.0" text="0" />
+                  <ChoiceBox fx:id="idTypuBox" layoutX="57.0" layoutY="566.0" prefWidth="150.0" visible="false" />
+                  <ChoiceBox fx:id="idVybehuBox" layoutX="243.0" layoutY="566.0" prefWidth="150.0" visible="false" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

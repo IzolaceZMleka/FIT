@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>AJAX</title>
+    </h:head>
+    <h:body>
+        <h2>Profile</h2>
+        <h:panelGrid columns="2" id="output">
+            <h:outputLabel value="Nickname" />
+            <h:outputText value="#{userProfile.nickname}" />
+            <h:outputLabel value="Age" />
+            <h:outputText value="#{userProfile.age}" />
+        </h:panelGrid>
+
+        <h2>Change</h2>
+        <h:form>
+            <h:panelGrid columns="2" id="input">
+                <h:outputLabel value="Nickname" />
+                <h:inputText value="#{userProfile.nickname}" />
+                <h:outputLabel value="Age" />
+                <h:inputText value="#{userProfile.age}" />
+            </h:panelGrid>
+
+            <h:commandButton value="Save">
+                <f:ajax execute="input" render="output" />
+            </h:commandButton>
+        </h:form>
+    </h:body>
+</html>
+

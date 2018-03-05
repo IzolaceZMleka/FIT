@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="420.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AnimalController">
+   <children>
+      <SplitPane dividerPositions="0.6228373702422145" layoutX="178.0" layoutY="108.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="252.0" prefWidth="235.0">
+               <children>
+                  <TableView fx:id="historieTable" layoutX="14.0" layoutY="199.0" prefHeight="191.0" prefWidth="328.0">
+                    <columns>
+                      <TableColumn fx:id="cPavlilon" prefWidth="128.0" text="Pavilon" />
+                      <TableColumn fx:id="cOd" minWidth="3.0" prefWidth="95.0" text="Od" />
+                        <TableColumn fx:id="cDo" prefWidth="103.0" text="Do" />
+                    </columns>
+                  </TableView>
+                  <Label layoutX="24.0" layoutY="30.0" prefHeight="17.0" prefWidth="91.0" text="Druh:" />
+                  <Label fx:id="zDruh" layoutX="131.0" layoutY="30.0" prefHeight="17.0" prefWidth="188.0" />
+                  <Label fx:id="zJmeno" layoutX="131.0" layoutY="59.0" prefHeight="17.0" prefWidth="188.0" />
+                  <Label layoutX="24.0" layoutY="59.0" prefHeight="17.0" prefWidth="91.0" text="Jméno:" />
+                  <Label fx:id="zPohlavi" layoutX="131.0" layoutY="89.0" prefHeight="17.0" prefWidth="188.0" />
+                  <Label layoutX="24.0" layoutY="89.0" prefHeight="17.0" prefWidth="91.0" text="Pohlaví:" />
+                  <Label layoutX="24.0" layoutY="149.0" prefHeight="17.0" prefWidth="91.0" text="Datum úmrtí:" />
+                  <Label fx:id="zDatumUmrti" layoutX="131.0" layoutY="149.0" prefHeight="17.0" prefWidth="188.0" />
+                  <Label fx:id="zDatumNarozeni" layoutX="131.0" layoutY="120.0" prefHeight="17.0" prefWidth="188.0" />
+                  <Label layoutX="24.0" layoutY="120.0" prefHeight="17.0" prefWidth="91.0" text="Datum narození:" />
+                  <ChoiceBox fx:id="editDruh" layoutX="115.0" layoutY="26.0" prefHeight="25.0" prefWidth="195.0" visible="false" />
+                  <TextField fx:id="ediJmeno" layoutX="115.0" layoutY="55.0" prefHeight="25.0" prefWidth="195.0" visible="false" />
+                  <ChoiceBox fx:id="editPohlavi" layoutX="115.0" layoutY="85.0" prefHeight="25.0" prefWidth="195.0" visible="false" />
+                  <DatePicker fx:id="editDatumNarozeni" layoutX="115.0" layoutY="116.0" prefHeight="25.0" prefWidth="195.0" visible="false" />
+                  <DatePicker fx:id="editDatumUmrti" layoutX="115.0" layoutY="145.0" prefHeight="25.0" prefWidth="195.0" visible="false" />
+                  <Button fx:id="btnDeleteInterval" layoutX="24.0" layoutY="170.0" mnemonicParsing="false" onAction="#handleBtnDeleteInterval" text="Odstraň" />
+                  <DatePicker fx:id="datePickerDeleteFrom" layoutX="92.0" layoutY="170.0" prefHeight="25.0" prefWidth="112.0" />
+                  <DatePicker fx:id="datePickerDeleteTo" layoutX="219.0" layoutY="170.0" prefHeight="25.0" prefWidth="112.0" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Button fx:id="uploadPhotoFromFile" layoutX="39.0" layoutY="196.0" mnemonicParsing="false" onAction="#handleBtnUploadPhotoFromFile" prefHeight="25.0" prefWidth="139.0" text="Nahrát fotografii" visible="false" />
+                  <Button fx:id="btnResize" layoutX="39.0" layoutY="258.0" mnemonicParsing="false" onAction="#handleBtnResize" prefHeight="25.0" prefWidth="139.0" text="Změn velikost" visible="false" />
+                  <Button fx:id="btnFindSimiliar" layoutX="39.0" layoutY="323.0" mnemonicParsing="false" onAction="#handleBtnFindSimiliar" prefHeight="25.0" prefWidth="139.0" text="Najít podobné" />
+                  <Pane layoutX="8.0" layoutY="8.0" prefHeight="174.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                     <children>
+                        <ImageView fx:id="picture" fitHeight="150.0" fitWidth="150.0" layoutX="23.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                           <viewport>
+                              <Rectangle2D />
+                           </viewport></ImageView>
+                     </children>
+                  </Pane>
+                  <TextField fx:id="txtFieldX" layoutX="50.0" layoutY="292.0" prefHeight="25.0" prefWidth="50.0" visible="false" />
+                  <TextField fx:id="txtFieldY" layoutX="126.0" layoutY="292.0" prefHeight="25.0" prefWidth="50.0" visible="false" />
+                  <Label fx:id="labelX" layoutX="38.0" layoutY="296.0" text="x: " visible="false" />
+                  <Label fx:id="labelY" layoutX="110.0" layoutY="296.0" text="y: " visible="false" />
+                  <Button fx:id="removePhoto" layoutX="40.0" layoutY="227.0" mnemonicParsing="false" onAction="#handleBtnRemovePhoto" prefHeight="25.0" prefWidth="139.0" text="Odstraň fotografii" visible="false" />
+                  <Button fx:id="btnEdit" layoutX="86.0" layoutY="360.0" mnemonicParsing="false" onAction="#handleBtnEdit" text="Uprav" />
+                  <Button fx:id="btnSave" layoutX="24.0" layoutY="360.0" mnemonicParsing="false" onAction="#handleBtnSave" text="Ulož" visible="false" />
+                  <Button fx:id="btnStorno" layoutX="152.0" layoutY="360.0" mnemonicParsing="false" onAction="#handleBtnStorno" text="Storno" visible="false" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

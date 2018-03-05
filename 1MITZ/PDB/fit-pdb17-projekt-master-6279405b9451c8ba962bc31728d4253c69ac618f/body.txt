@@ -1,0 +1,8 @@
+xvosah00 100 %
+xzeman53 100 %
+xpavli78 100 %
+Vedoucím projektu je Daniel Vosáhlo (xvosah00), pracoval na počátečním návrhu alikace, návrhu a vytvoření schématu DB, metodách pro práci s multimedii a vytvořil metody a procedury pro práci s temporálními daty a dokumentaci pro převod dotazů v TSQL2 na klasické SQL.
+
+Ondřej Zemánek (xzeman53) - Pracoval na základní struktuře projektu (Entity, modely, DbContext pro práci s DB), vytvořil metody pro práci s prostorovými daty, přihlašování a aplikace inicializačního scriptu.
+
+Jan Pavlica (xpavli78) - Pracoval na grafickém rozhraní projektu (contollery, shapes, gui, view), které zahrnovalo mimo jiné převody dat z DB formátu(JGeometry, ORDimage) do formátů, které jsou vlastní JavaFX(Shapes.*, Image).

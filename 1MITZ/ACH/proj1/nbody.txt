@@ -1,0 +1,118 @@
+Architektura procesorů (ACH 2017)
+Projekt č. 1 (nbody)
+Login: xpavli78
+
+U každého kroku proveďte měření simulace s 1000 částicemi a to na čas simulace, vektorový i skalární výkon,
+počet výpadku v cache (alespoň L1 a L2). Dále odpovězte na požadované otázky.
+
+
+Krok 0: základní implementace
+=============================
+Celkový čas [s]: 37.45 s
+Výkon skalárních operací [MFLOPS]:      1368.35
+Výkon vektorových operací [MFLOPS]:     1288.27
+L1 miss [%]:                            1.560576249%
+L2 miss [%]:                            0.000824%
+L3 miss [%]:                            6.24%
+
+Které PAPI_EVENTS jste použili pro získání počtu výpadků v paměti?
+HW countery pro L1: PAPI_L1_DCM|PAPI_LD_INS|PAPI_SR_INS
+HW countery pro L2: PAPI_L2_TCM|PAPI_L2_TCA
+HW countery pro L3: PAPI_L3_TCA|PAPI_L3_TCM
+
+
+Krok 1: vektorizovaná implementace
+==================================
+Celkový čas [s]: 19.17 s
+Výkon skalárních operací [MFLOPS]:      0.471457
+Výkon vektorových operací [MFLOPS]:     8348.45
+L1 miss [%]:                            1.47166886%
+L2 miss [%]:                            0.000573%
+L3 miss [%]:                            3.37%
+
+Jaké pragmy bylo potřeba přidat?
+#pragma omp simd
+
+Které dovětky k pragmám jste použili a jaky měly vliv na kompilátorem generované funkce? (velocity.optrpt)
+#pragma omp declare simd
+Vznik scatter/gather.
+
+Krok 2: přístupy do paměti
+=============================
+Celkový čas [s]: 25.95 s
+Výkon skalárních operací [MFLOPS]:      15.7322
+Výkon vektorových operací [MFLOPS]:     6131.65
+L1 miss [%]:                            0.879182124%
+L2 miss [%]:                            0.00113%
+L3 miss [%]:                            5.68%
+
+
+Jak jste zarovnali data v paměti a informovali překladač?
+Změna strutur velocities a particles z AoS na SoA.
+__assume_aligned(&p, 64);
+__assume_aligned(velocities, 64);
+
+Měla tato úprava vliv na výpadky? Na výkon? Proč?
+Paměť je totiž uložena v souvislých blocích. Výpadky L1 poklesky. Nicméně došlo i k snížení MFLOPS u vektorových operací, a tak k celkovému snížení výkonu.
+
+Krok 3: režie funkcí
+===================================
+3.1: spojení funkcí
+-----------------------------------
+Celkový čas [s]: 21.25 s
+Výkon skalárních operací [MFLOPS]:      9.04008
+Výkon vektorových operací [MFLOPS]:     3932.07
+L1 miss [%]:                            1.200100104%
+L2 miss [%]:                            0.000565%
+L3 miss [%]:                            12.1%
+
+3.2: úprava rozhraní
+-----------------------------------
+Celkový čas [s]: 10.74 s
+Výkon skalárních operací [MFLOPS]:      18.313
+Výkon vektorových operací [MFLOPS]:     4146.81
+L1 miss [%]:                            1.534818519%
+L2 miss [%]:                            0.00148%
+L3 miss [%]:                            2.85%
+
+3.3: bez volání funkce
+-----------------------------------
+Celkový čas [s]: 3.56 s
+Výkon skalárních operací [MFLOPS]:      7.50693e-05
+Výkon vektorových operací [MFLOPS]:     13374.1
+L1 miss [%]:                            11.433676117%
+L2 miss [%]:                            0.000325%
+L3 miss [%]:                            4.03%
+
+Která verze je nejefektivnější a proč?
+Verze 3. Protože obsahuje všechny předchozí kroky. Navíc eliminuje volání funkcí a s tím spojenou další režii.
+
+Krok 4: úprava složitosti výpočtu
+===================================
+Vyplňte následující tabulku, zvolte vhodné hodnoty počtu částic N:
+
+N       L1 miss [c]  L2 miss [%]  L3 miss [%]  výkon [MFLOPS]   čas [s]
+1000	5.265581%	 0.0016%	28.3%	13647.1	        2.28 s
+1100	4.359085%	 0.000954%	8.36%	12972.2	        2.88 s
+1200	5.008472%	 0.000736%	38.3%	13772.3	        3.25 s
+1300	5.836200%	 0.00626%	0.262%	13117.8	        3.96 s
+1400	6.167388%	 0.000559%	3.31%	11923.7	        5.17 s
+1500	6.682196%	 0.000592%	2.96%	13403	        5.24 s
+2000	8.514071%	 0.000364% 	5.27%	14042.3	        8.86 s
+5000	9.241782%	 0.0325%	0.0197%	14319.5	        54.17 s
+10000	9.509248%	 0.000126%	2.18%	14183.5	        219.89 s
+...
+
+Particle = 7 x float -> zarovnání -> 32B
+Dle lscpu velikost pamětí 32K, 256K, 20480K
+Maximální počet částic v L1: 32 * 1024 / 32 = 1024
+Maximální počet částic v L2: 256 * 1024 / 32 = 8192
+Maximální počet částic v L3: 20480 * 1024 / 32 = 655360
+
+Popište, jaký dopad na výkon mají výpadky v~cache.
+Se zvýšeným počtem výpadků dochází k horšímu výkon, jelikož musíme získat data odjinud než z mezipaměti a tím se zvyšuje režie.
+
+Jak byste tento vliv omezili?
+Přednačítáním dle přenášky z týdne 4.
+
+

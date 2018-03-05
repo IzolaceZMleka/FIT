@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="oracle.ordim">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/pdb-zoo/lib/oracle.ordim/orddcmmt.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/pdb-zoo/lib/oracle.ordim/ordimann.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/pdb-zoo/lib/oracle.ordim/ordim.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/pdb-zoo/lib/oracle.ordim/ordhttp.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/pdb-zoo/lib/oracle.ordim/orddicom.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>PF Input</title>
+    </h:head>
+    <h:body>
+        <h1>PF Input</h1>
+
+        <h2>AutoComplete</h2>
+        <h:form>
+            <h:panelGrid columns="2" cellpadding="5">
+                <p:outputLabel value="Simple:" for="acSimple" />
+                <p:autoComplete id="acSimple"
+                                value="#{autoComplete.text}"
+                                completeMethod="#{autoComplete.completeText}" />
+
+                <p:outputLabel value="Min Length (3):" for="acMinLength" />
+                <p:autoComplete id="acMinLength" minQueryLength="3"
+                                value="#{autoComplete.text}"
+                                completeMethod="#{autoComplete.completeText}"
+                                effect="fade" />
+
+                <p:outputLabel value="Force Selection:" for="acForce" />
+                <p:autoComplete id="acForce" forceSelection="true"
+                                value="#{autoComplete.text}"
+                                completeMethod="#{autoComplete.completeText}" />
+            </h:panelGrid>
+        </h:form>
+
+        <h2>Calendar</h2>
+        <h:panelGrid columns="2" cellpadding="5">
+            <p:outputLabel for="inline" value="Inline:" />
+            <p:calendar id="inline" value="" mode="inline" />
+
+            <p:outputLabel for="popup" value="Popup:" />
+            <p:calendar id="popup" value="" />
+
+            <p:outputLabel for="button" value="Button:" />
+            <p:calendar id="button" value="" showOn="button" />
+
+            <p:outputLabel for="event" value="Select Event:" />
+            <p:calendar id="event" value="">
+                <p:ajax event="dateSelect" />
+                <!--<p:ajax event="dateSelect" listener="" update="" />-->
+            </p:calendar>
+        </h:panelGrid>
+
+        <h2>Keyboard</h2>
+        <h:form>
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputText value="Default Layout: " />
+                <p:keyboard id="default" />
+
+                <h:outputText value="Basic QWERTY: " />
+                <p:keyboard id="qwerty" layout="qwertyBasic" />
+            </h:panelGrid>
+        </h:form>
+
+        <h2>ColorPicker</h2>
+        <h:form>
+            <p:colorPicker mode="inline" />
+        </h:form>
+
+        <h2>Password</h2>
+        <h:form>
+            <p:password id="feedback" feedback="true" />
+        </h:form>
+
+        <h2>Editor</h2>
+        <h:form>
+            <p:editor id="editor" widgetVar="editorWidget" width="600" />
+        </h:form>
+
+        <h2>Inplace</h2>
+        <h:form>
+            <h:panelGrid columns="2" columnClasses="column" cellpadding="5">
+                <h:outputLabel for="basic" value="Basic:" />
+                <p:inplace id="basic">
+                    <p:inputText value="Edit Me" />
+                </p:inplace>
+
+                <h:outputLabel for="event" value="Dblclick"/>
+                <p:inplace id="event" label="Cities" effectSpeed="fast" event="dblclick">
+                    <h:selectOneMenu>
+                        <f:selectItem itemLabel="New York" itemValue="0" />
+                        <f:selectItem itemLabel="London" itemValue="1" />
+                        <f:selectItem itemLabel="Paris" itemValue="2" />
+                        <f:selectItem itemLabel="Berlin" itemValue="3" />
+                    </h:selectOneMenu>
+                </p:inplace>
+            </h:panelGrid>
+        </h:form>
+
+        <h2>Knob</h2>
+        <p:knob />
+
+        <h2>TriStateCheckbox</h2>
+        <h:panelGrid columns="2" cellpadding="5">
+            <h:outputText value="Basic Usage: "/>
+            <p:triStateCheckbox value=""/>
+
+            <h:outputText value="Ajax Behavior: "/>
+            <p:triStateCheckbox id="ajaxTriState" value="">
+                <p:ajax event="change" />
+                <!--<p:ajax event="change" update="" listener=""/>-->
+            </p:triStateCheckbox>
+
+            <h:outputText value="Customs Icons: "/>
+            <p:triStateCheckbox value=""
+                                stateTwoIcon="ui-icon-plus"
+                                stateThreeIcon="ui-icon-minus"/>
+
+            <p:triStateCheckbox value="#{triStateCheckboxView.value4}" itemLabel="Item Label" />
+        </h:panelGrid>
+    </h:body>
+</html>
+

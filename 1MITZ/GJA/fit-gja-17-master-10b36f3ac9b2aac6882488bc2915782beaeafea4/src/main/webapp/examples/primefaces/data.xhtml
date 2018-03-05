@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>PF Data</title>
+    </h:head>
+    <h:body>
+        <h1>PF Data</h1>
+
+        <h2>DataList</h2>
+        <h:form>
+            <p:dataList value="#{dataList.data}"
+                        var="item" type="unordered" itemType="none"
+                        paginator="true"
+                        rows="10" styleClass="paginated">
+                <f:facet name="header">
+                    Paginator
+                </f:facet>
+                <h:outputText value="#{item}"/>
+            </p:dataList>
+        </h:form>
+
+        <h2>Tree</h2>
+        <h:form>
+            <p:tree value="#{dataTree.root}" var="node">
+                <p:treeNode>
+                    <h:outputText value="#{node}" />
+                </p:treeNode>
+            </p:tree>
+
+            <p:tree value="#{dataTree.root}" var="node" orientation="horizontal">
+                <p:treeNode>
+                    <h:outputText value="#{node}" />
+                </p:treeNode>
+            </p:tree>
+        </h:form>
+
+    </h:body>
+</html>
+
